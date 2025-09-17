@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="mb-4">📚 Todos lo libros</h1>
+
+<div class="row">
+    {% for book in books %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">{{ libro.titulo }} 📖</h5>
+                    {% if libro.publicacion %}
+                        <p class="card-text">
+                            <small class="text-muted">Publicacion: {{ book.publicacion }} </small>
+                        </p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <div class="col-12">
+            <div class="alert alert-info">
+                <i class="bi bi-info-circle"></i> No hay libros. 📭
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
